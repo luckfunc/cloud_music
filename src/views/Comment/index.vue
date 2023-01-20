@@ -6,19 +6,12 @@
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
 
         <!--      van-cell 单元格借用一下，内部全都自定义-->
-        <van-list
-            v-model="loading"
-            :finished="finished"
-            finished-text="没有更多了"
-            @load="onLoad"
-        >
-          <van-cell
-              v-for="list in commentList " :key="list.id"
-          >
+        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+          <van-cell v-for="list in commentList " :key="list.id">
             <template>
               <div class="wrap">
                 <div class="img_wrap">
-                  <img :src="list.user.avatarUrl " alt="">
+                  <img :src="list.user.avatarUrl" alt="">
                 </div>
                 <div class="content_wrap">
                   <div class="header_wrap">
@@ -28,7 +21,8 @@
                     </div>
                     <div>
                       <van-icon name="good-job-o" />
-                      {{ list.likedCount }}</div>
+                      {{ list.likedCount }}
+                    </div>
                   </div>
                   <div class="footer_wrap">
                     {{ list.content }}
@@ -44,7 +38,7 @@
 </template>
 
 <script>
-import {getCommentValueApi} from "@/api";
+import { getCommentValueApi } from "@/api";
 
 export default {
   name: "index",
